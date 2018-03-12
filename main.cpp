@@ -3,6 +3,17 @@
 //g++ -std=c++14 -Wall -Wextra `pkg-config --cflags --libs gtkmm-2.4` main.cpp
 
 // ifndef define
+class ZoneDessin : public Gtk::DrawingArea{
+private:
+  std::vector<FigureGeometrique*> _figures;
+public:
+  ZoneDessin(){}
+  ~ZoneDessin(){}
+  bool on_expose_event(GdkEventExpose* event) override {return true;}
+  bool gererClic(GdkEventButton* event){return true;}
+};
+
+}
 class ViewerFigures{
 private:
   Gtk::Main _kit;
