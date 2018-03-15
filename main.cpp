@@ -18,10 +18,13 @@ class ViewerFigures{
 private:
   Gtk::Main _kit;
   Gtk::Window _window;
+  ZoneDessin _dessin;
 public:
-  ViewerFigures(int argc, char ** argv): _kit(argc,argv), _window(){
+  ViewerFigures(int argc, char ** argv): _kit(argc,argv), _window(), _dessin{
     _window.set_title("ma fenetre");
     _window.set_default_size(480,640);
+    _window.add(dessin);
+    _window.show_all();
 }
 void run(){
   _kit.run(_window);
