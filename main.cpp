@@ -7,8 +7,22 @@ class ZoneDessin : public Gtk::DrawingArea{
 private:
   std::vector<FigureGeometrique*> _figures;
 public:
-  ZoneDessin(){}
-  ~ZoneDessin(){}
+  ZoneDessin(){
+    FigureGeometrique * fig1=new FigureGeometrique();
+    FigureGeometrique * fig2=new FigureGeometrique();
+    _figures.push_back(fig1);
+    _figures.push_back(fig2);
+    
+
+
+
+  }
+  ~ZoneDessin(){
+    for(FigureGeometrique * fig : _figures){
+      delete *fig;
+      delete fig;
+    }
+  }
   bool on_expose_event(GdkEventExpose* event) override {return true;}
   bool gererClic(GdkEventButton* event){return true;}
 };
